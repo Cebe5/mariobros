@@ -5,14 +5,22 @@ import { scene } from './escena.js';
 import { mario, mS } from './jugador.js';
 import { collidables } from './nivel.js';
 import { addCoin, addScore, showMsg } from './hud.js';
+<<<<<<< HEAD
 import { spawnMushroom, spawnStar } from './enemigos.js';
+=======
+import { spawnMushroom } from './enemigos.js';
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
 
 export var particles = [];
 export var _b1 = new THREE.Box3(), _b2 = new THREE.Box3();
 export var prevVelY = 0;
 export function setPrevVelY(v) { prevVelY = v; }
 
+<<<<<<< HEAD
 // PARTICULAS
+=======
+// ── PARTICLES ─────────────────────────────────────────────────────────
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
 export function spawnParticles(pos, color, n, big) {
   if (!n) n = 8;
   for (var i = 0; i < n; i++) {
@@ -31,10 +39,20 @@ export function spawnParticles(pos, color, n, big) {
   }
 }
 
+<<<<<<< HEAD
 // COLISION
 var _b1 = new THREE.Box3(), _b2 = new THREE.Box3();
 
 export function getMarioBox() {
+=======
+// ── COLLISION ─────────────────────────────────────────────────────────
+var _b1 = new THREE.Box3(), _b2 = new THREE.Box3();
+
+export function getMarioBox() {
+  // Use actual scale so hitbox matches visual exactly
+  // Hat top in local space = 2.23 (htop center 2.02 + half height 0.21)
+  // Feet bottom in local space = -0.62
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
   var sy   = mario.scale.y;
   var hw   = 0.36;
   var hd   = 0.22;
@@ -65,7 +83,11 @@ export function resolvePlayer(plat) {
   }
 }
 
+<<<<<<< HEAD
 // GOLPEO DE BLOQUES
+=======
+// ── BLOCK HIT ─────────────────────────────────────────────────────────
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
 export function checkBlockHits() {
   getMarioBox();
   var marioTop = _b1.max.y;
@@ -86,13 +108,27 @@ export function checkBlockHits() {
     var blkCX  = ((_b2.min.x + _b2.max.x) / 2);
     var blkCZ  = ((_b2.min.z + _b2.max.z) / 2);
 
+<<<<<<< HEAD
+=======
+    // XZ overlap check (with slight forgiveness on block side too)
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
     var overlapX = Math.abs(marioCX - blkCX) < (marioHalfW + (_b2.max.x - _b2.min.x) / 2 * 0.9);
     var overlapZ = Math.abs(marioCZ - blkCZ) < (marioHalfD + (_b2.max.z - _b2.min.z) / 2 * 0.9);
 
     if (!overlapX || !overlapZ) continue;
+<<<<<<< HEAD
     var headNearBottom = marioTop > blkBot - 0.05 && marioTop < blkBot + 0.5;
 
     if (prevVelY > 0 && headNearBottom) {
+=======
+
+    // HEAD HIT: Mario's head touches block bottom while jumping up
+    // Window: head is between 0.05 below and 0.5 above block bottom
+    var headNearBottom = marioTop > blkBot - 0.05 && marioTop < blkBot + 0.5;
+
+    if (prevVelY > 0 && headNearBottom) {
+      // Snap: push Mario down so head is exactly at block bottom
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
       mario.position.y = blkBot - (2.23 * mario.scale.y) - 0.01;
       mS.vel.y = -0.05;
 
@@ -100,16 +136,25 @@ export function checkBlockHits() {
         blk.userData.hit = true;
         blk.material = new THREE.MeshStandardMaterial({ map: hitBlockTex, roughness: 0.85, metalness: 0 });
         if (blk.userData.content === 'coin') {
+<<<<<<< HEAD
+=======
+          // Add coin directly to counter, no mesh spawned
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
           addCoin(); addScore(200);
           spawnParticles(blk.position, 0xffd700, 8, false);
         } else if (blk.userData.content === 'mushroom') {
           (function(){
             var msh = spawnMushroom(blk.position.x, blk.position.y + 0.5);
+<<<<<<< HEAD
+=======
+            // Start hidden inside block, slide up
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
             msh.userData.emerging = true;
             msh.userData.emergeTarget = blk.position.y + 1.5;
             msh.userData.baseY = blk.position.y + 1.5;
           })();
           showMsg('MUSHROOM!');
+<<<<<<< HEAD
         } else if (blk.userData.content === 'star') {
           (function(){
             var str = spawnStar(blk.position.x, blk.position.y + 0.5);
@@ -118,6 +163,8 @@ export function checkBlockHits() {
             str.userData.baseY = blk.position.y + 1.5;
           })();
           showMsg('STAR!');
+=======
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
         }
       } else if (t === 'brick') {
         spawnParticles(blk.position, 0xc8622a, 14, true);

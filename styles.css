@@ -98,6 +98,7 @@ canvas { display:block; }
   color:#ffffff; font-size:22px; font-weight:bold;
   text-shadow:2px 2px 0 #000; font-family:'SuperMario', monospace;
   min-width:52px; display:inline-block; text-align:left;
+<<<<<<< HEAD
 }
 /* ── FPS COUNTER ────────────────────────────────────────────────── */
 #fps-counter {
@@ -149,3 +150,6 @@ canvas { display:block; }
   z-index: 30;
   transition: transform 0.1s;
 }
+=======
+}
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee

@@ -2,7 +2,11 @@
 export var keys = {};
 export var camTheta = 0, camPhi = 0.38, camRadius = 15;
 
+<<<<<<< HEAD
 // CONTROLES
+=======
+// ── CONTROLS ──────────────────────────────────────────────────────────
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
 var mouseDown = false;
 
 window.addEventListener('keydown', function(e) {

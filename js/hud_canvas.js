@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 // hud_canvas.js
 // RELOJ HUD
+=======
+// hud_canvas.js — pixel art HUD icons (clock, cap, coin)
+// ── PIXEL CLOCK IN HUD ────────────────────────────────────────────────
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
 (function() {
   var canvas = document.getElementById('clock-canvas');
   if (!canvas) return;
   var dpr   = window.devicePixelRatio || 1;
     var ctx   = canvas.getContext('2d');
     ctx.imageSmoothingEnabled = false;
+<<<<<<< HEAD
   var SZ = 2.4;
+=======
+  var SZ = 2.4; // pixel size
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
 
   var M = [
     [0,0,0,0,2,2,2,2,2,0,0,0,0],
@@ -29,6 +38,10 @@
     2: '#000000'
   };
 
+<<<<<<< HEAD
+=======
+  // Resize canvas to fit grid
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
   var _szr = SZ * dpr;
   canvas.width  = M[0].length * _szr;
   canvas.height = M.length    * _szr;
@@ -36,6 +49,10 @@
   canvas.style.height = (M.length    * SZ) + "px";
   function drawClock() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+<<<<<<< HEAD
+=======
+    // Transparent background — pixels 0 are clear
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
     for (var row = 0; row < M.length; row++) {
       for (var col = 0; col < M[row].length; col++) {
         var v = M[row][col];
@@ -48,7 +65,11 @@
 
   drawClock();
 
+<<<<<<< HEAD
   // GORRA HUD
+=======
+  // ── CAP CANVAS ─────────────────────────────────────────────────────
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
   var capCanvas = document.getElementById('cap-canvas');
   if (capCanvas) {
     var ctxC = capCanvas.getContext('2d');
@@ -89,7 +110,11 @@
     }
   }
 
+<<<<<<< HEAD
   // MONEDA HUD
+=======
+  // ── COIN CANVAS ────────────────────────────────────────────────────
+>>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
   var coinCanvas = document.getElementById('coin-canvas');
   if (coinCanvas) {
     var dpr2  = window.devicePixelRatio || 1;
