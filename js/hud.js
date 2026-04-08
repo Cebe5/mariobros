@@ -11,10 +11,7 @@ export var hudLives  = null;
 export var msgEl     = null;
 export var bowserEl  = null;
 export var bowserTxt = null;
-<<<<<<< HEAD
 export var fpsEl     = null;
-=======
->>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
 
 
 export function setLives(v) { lives = v; }
@@ -24,14 +21,9 @@ export function setTimeLeft(v) { timeLeft = v; }
 export function setFlagDone(v) { flagDone = v; }
 export function setScore(v) { score = v; }
 
-<<<<<<< HEAD
 // HUD
 hudCoins  = document.getElementById('coin-val');
 fpsEl     = document.getElementById('fps-counter');
-=======
-// ── HUD ───────────────────────────────────────────────────────────────
-hudCoins  = document.getElementById('coin-val');
->>>>>>> 3983404a5c57a83b4495cd90c60dfb77815a7eee
 hudTime   = document.getElementById('clock-time-val');
 hudLives  = document.getElementById('lives-val');
 msgEl     = document.getElementById('msg');
