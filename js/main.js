@@ -97,8 +97,18 @@ function hurtMario() {
 }
 function dieMario() {
   if (mS.isDead) return;
-  mS.isDead=true; mS.starMode=0; mS.vel.set(0,0.42,0); mario.rotation.z=Math.PI;
-  if(starTimerEl) starTimerEl.style.display='none';
+  mS.isDead=true; mS.vel.set(0,0.42,0); mario.rotation.z=Math.PI;
+  if (mS.starMode > 0) {
+  mS.starMode = 0;
+  mario.traverse(function(c) {
+    if (c.isMesh && c.userData.origColor !== undefined) {
+      c.material = c.material.clone();
+      c.material.color.setHex(c.userData.origColor);
+      c.material.emissive.setHex(c.userData.origEmissive || 0x000000);
+    }
+  });
+}
+if(starTimerEl) starTimerEl.style.display='none';
   setLives(lives - 1); hudLives.textContent=lives;
   setGameActive(false); clearInterval(timerHandle);
   showBowser(lives <= 0, function() {
