@@ -330,8 +330,8 @@ function updateMario() {
     ud.lgL.rotation.x = -0.85 + riseT * 0.25;
     ud.lgR.rotation.x =  0.42 - riseT * 0.18;
   } else if (moving) {
-    animT += 0.18;
-    var sw = Math.sin(animT) * 0.32;
+    animT += 0.32;
+    var sw = Math.sin(animT) * 0.45;
     ud.lgL.rotation.x =  sw;
     ud.lgR.rotation.x = -sw;
     ud.aL.rotation.x  = -sw * 0.4;
