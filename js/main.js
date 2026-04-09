@@ -296,7 +296,17 @@ function updateMario() {
     var t = Math.min(mS.growTimer / 35, 1.0);
     var scY = 1.0 + t * 0.38;
     mario.scale.set(1, scY, 1);
-    if (t >= 1.0) { mario.scale.set(1, 1.38, 1); mS.growing = false; }
+    if (t >= 1.0) {
+    mario.scale.set(1, 1.38, 1); mS.growing = false;
+    if (mS.starMode > 0) {
+      mario.traverse(function(c) {
+      if (c.isMesh && c.userData.origColor !== undefined) {
+        c.userData.origColor = c.material.color.getHex();
+        c.userData.origEmissive = c.material.emissive ? c.material.emissive.getHex() : 0x000000;
+        }
+      });
+    }
+   }
   }
 
   var fwd, right;
