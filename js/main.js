@@ -301,10 +301,10 @@ function updateMario() {
     if (mS.starMode > 0) {
       mario.traverse(function(c) {
       if (c.isMesh && c.userData.origColor !== undefined) {
-        c.userData.origColor = c.material.color.getHex();
+        c.userData.origColor    = c.material.color.getHex();
         c.userData.origEmissive = c.material.emissive ? c.material.emissive.getHex() : 0x000000;
-        }
-      });
+       }
+     });
     }
    }
   }
