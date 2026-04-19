@@ -167,8 +167,7 @@ function updatePowerups() {
     if (_b1.intersectsBox(_b2)) {
       pu.collected = true; scene.remove(pu.mesh);
       if (pu.mesh.userData.type === 'star') {
-        mS.starMode = 480;  // 8 seconds at 60fps
-        // Store original colors before rainbow kicks in
+        mS.starMode = 300;  
         mario.traverse(function(c) {
           if (c.isMesh && c.material) {
             c.userData.origColor = c.material.color.getHex();
