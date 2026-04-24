@@ -25,9 +25,10 @@ window.addEventListener('resize', function() {
 
 sun = new THREE.DirectionalLight(0xfff5cc, 1.0);
 sun.position.set(40, 80, 20); sun.castShadow = true;
-sun.shadow.mapSize.width = 1024; sun.shadow.mapSize.height = 1024;
-sun.shadow.camera.left = -60; sun.shadow.camera.right = 60;
-sun.shadow.camera.top = 40; sun.shadow.camera.bottom = -10; sun.shadow.camera.far = 200;
+sun.shadow.mapSize.width = 3072; sun.shadow.mapSize.height = 3072;
+sun.shadow.camera.left = -28; sun.shadow.camera.right = 28;
+sun.shadow.camera.top = 18; sun.shadow.camera.bottom = -5;
+sun.shadow.camera.near = 40; sun.shadow.camera.far = 120;
 sun.shadow.bias = -0.001;
 scene.add(sun);
 scene.add(sun.target);
